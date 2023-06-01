@@ -15,6 +15,7 @@ REGOLE
 const area = function (l1, l2) {
   let calc = l1 * l2;
   console.log(calc);
+  return;
 };
 area(10, 12);
 area(5, 7);
@@ -110,7 +111,7 @@ console.log(epify("Ciao come stai?"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 const check3and7 = function (number) {
   let result = " ";
-  if (number % 3 === 0 || number % 7 === 0) {
+  if ((number > 0 && number % 3 === 0) || number % 7 === 0) {
     console.log(result, true, "Il numero è divisibie per 3 o per 7");
   } else {
     console.log(result, false, "Il numero non è divisibie per 3 o per 7");
@@ -139,14 +140,16 @@ reverseString("JOIN THE NAVY");
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 const upperFirst = function (words) {
-  let result = " "
-  if (result = result.toLowerCase) {
-    console.log(result.toUpperCase());
+  let arrayOfWords = words.split(' ')
+  let result = ''
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    result += arrayOfWords[i].charAt(0).toUpperCase() +
+    arrayOfWords[i].slice(1, arrayOfWords[i].length) + ' '
+    
   }
-  
-  return
+  return result;
 };
-upperFirst("frase");
+console.log(upperFirst("frase di prova"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
@@ -154,9 +157,21 @@ upperFirst("frase");
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const cutString = function (str) {
+    let result = str.slice(1, str.length - 1)
+    return result
+}
 
+cutString('Prova')
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function giveMeRandom(n) {
+    let result = []
+for (let i = 0; i < n; i++) 
+    result.push(Math.floor(Math.random() * 11)) 
+    return result   
+}
+console.log(giveMeRandom(3));
